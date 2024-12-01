@@ -1,1 +1,71 @@
-<p>purchase works!</p>
+<!-- otp-input.component.html -->
+<div class="otp-container">
+    <h1>Enter OTP</h1>
+    <form (ngSubmit)="onSubmit()" class="otp-form">
+      <div class="otp-inputs">
+        <input
+          id="otp-input-0"
+          type="text"
+          maxlength="1"
+          [(ngModel)]="otp[0]"
+          (input)="onInput($event, 1)"
+          (keydown)="onKeydown($event, 0)"
+          class="otp-field"
+          [ngClass]="{'focus': otp[0] !== ''}"
+          autofocus
+        />
+        <input
+          id="otp-input-1"
+          type="text"
+          maxlength="1"
+          [(ngModel)]="otp[1]"
+          (input)="onInput($event, 2)"
+          (keydown)="onKeydown($event, 1)"
+          class="otp-field"
+          [ngClass]="{'focus': otp[1] !== ''}"
+        />
+        <input
+          id="otp-input-2"
+          type="text"
+          maxlength="1"
+          [(ngModel)]="otp[2]"
+          (input)="onInput($event, 3)"
+          (keydown)="onKeydown($event, 2)"
+          class="otp-field"
+          [ngClass]="{'focus': otp[2] !== ''}"
+        />
+        <input
+          id="otp-input-3"
+          type="text"
+          maxlength="1"
+          [(ngModel)]="otp[3]"
+          (input)="onInput($event, 4)"
+          (keydown)="onKeydown($event, 3)"
+          class="otp-field"
+          [ngClass]="{'focus': otp[3] !== ''}"
+        />
+        <input
+          id="otp-input-4"
+          type="text"
+          maxlength="1"
+          [(ngModel)]="otp[4]"
+          (input)="onInput($event, 5)"
+          (keydown)="onKeydown($event, 4)"
+          class="otp-field"
+          [ngClass]="{'focus': otp[4] !== ''}"
+        />
+        <input
+          id="otp-input-5"
+          type="text"
+          maxlength="1"
+          [(ngModel)]="otp[5]"
+          (input)="onInput($event, 6)"
+          (keydown)="onKeydown($event, 5)"
+          class="otp-field"
+          [ngClass]="{'focus': otp[5] !== ''}"
+        />
+      </div>
+      <button type="submit" [disabled]="otp.includes('')">Submit OTP</button>
+    </form>
+  </div>
+  
