@@ -25,3 +25,19 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+git command
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/yourusername/your-repository-name.git
+git push -u origin master
+
+branches
+
+git branch branch-name
+
+git checkout branch-name/git switch branch-name ---> switch branch
+
+git branch ---> list branches
+
+git push -u origin branch-name --> push branch to repo
