@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./purchase.component.scss']
 })
 export class PurchaseComponent {
-  otp: string[] = ['', '', '', '', '', '']; // Array to hold OTP digits
+  otp: string[] = ['', '', '', '', '', ''];  // Array to hold OTP digits
 
   constructor() {}
 
@@ -35,6 +35,32 @@ export class PurchaseComponent {
         }
       }, 100);
     }
+  }
+
+  // Method to handle paste event
+  onPaste(event: ClipboardEvent): void {
+    const pastedData = event.clipboardData?.getData('text') || '';
+    
+    // Only process the first 6 characters
+    const otpDigits = pastedData.slice(0, 6).split('');
+    
+    // Fill OTP fields with the pasted digits
+    for (let i = 0; i < otpDigits.length; i++) {
+      this.otp[i] = otpDigits[i];
+    }
+
+    // Move focus to the next empty field after pasting
+    setTimeout(() => {
+      for (let i = 0; i < this.otp.length; i++) {
+        if (this.otp[i] === '') {
+          const nextInput = document.getElementById(`otp-input-${i}`);
+          if (nextInput) {
+            (nextInput as HTMLElement).focus();
+            break;
+          }
+        }
+      }
+    }, 100);
   }
 
   // Submit the OTP

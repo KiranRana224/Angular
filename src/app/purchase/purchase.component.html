@@ -1,4 +1,3 @@
-<!-- otp-input.component.html -->
 <div class="otp-container">
     <h1>Enter OTP</h1>
     <form (ngSubmit)="onSubmit()" class="otp-form">
@@ -8,8 +7,10 @@
           type="text"
           maxlength="1"
           [(ngModel)]="otp[0]"
+          name="otp1" 
           (input)="onInput($event, 1)"
           (keydown)="onKeydown($event, 0)"
+          (paste)="onPaste($event)"
           class="otp-field"
           [ngClass]="{'focus': otp[0] !== ''}"
           autofocus
@@ -19,8 +20,10 @@
           type="text"
           maxlength="1"
           [(ngModel)]="otp[1]"
+          name="otp2" 
           (input)="onInput($event, 2)"
           (keydown)="onKeydown($event, 1)"
+          (paste)="onPaste($event)"
           class="otp-field"
           [ngClass]="{'focus': otp[1] !== ''}"
         />
@@ -29,8 +32,10 @@
           type="text"
           maxlength="1"
           [(ngModel)]="otp[2]"
+          name="otp3" 
           (input)="onInput($event, 3)"
           (keydown)="onKeydown($event, 2)"
+          (paste)="onPaste($event)"
           class="otp-field"
           [ngClass]="{'focus': otp[2] !== ''}"
         />
@@ -39,8 +44,10 @@
           type="text"
           maxlength="1"
           [(ngModel)]="otp[3]"
+          name="otp4" 
           (input)="onInput($event, 4)"
           (keydown)="onKeydown($event, 3)"
+          (paste)="onPaste($event)"
           class="otp-field"
           [ngClass]="{'focus': otp[3] !== ''}"
         />
@@ -48,9 +55,11 @@
           id="otp-input-4"
           type="text"
           maxlength="1"
+          name="otp5" 
           [(ngModel)]="otp[4]"
           (input)="onInput($event, 5)"
           (keydown)="onKeydown($event, 4)"
+          (paste)="onPaste($event)"
           class="otp-field"
           [ngClass]="{'focus': otp[4] !== ''}"
         />
@@ -58,9 +67,11 @@
           id="otp-input-5"
           type="text"
           maxlength="1"
+          name="otp6" 
           [(ngModel)]="otp[5]"
           (input)="onInput($event, 6)"
           (keydown)="onKeydown($event, 5)"
+          (paste)="onPaste($event)"
           class="otp-field"
           [ngClass]="{'focus': otp[5] !== ''}"
         />
