@@ -37,30 +37,27 @@ export class PurchaseComponent {
     }
   }
 
-  // Method to handle paste event
-  onPaste(event: ClipboardEvent): void {
-    const pastedData = event.clipboardData?.getData('text') || '';
-    
-    // Only process the first 6 characters
-    const otpDigits = pastedData.slice(0, 6).split('');
-    
-    // Fill OTP fields with the pasted digits
-    for (let i = 0; i < otpDigits.length; i++) {
-      this.otp[i] = otpDigits[i];
-    }
-
-    // Move focus to the next empty field after pasting
-    setTimeout(() => {
-      for (let i = 0; i < this.otp.length; i++) {
-        if (this.otp[i] === '') {
-          const nextInput = document.getElementById(`otp-input-${i}`);
-          if (nextInput) {
-            (nextInput as HTMLElement).focus();
-            break;
-          }
+  // This method handles the paste event
+  onPaste(event: ClipboardEvent, currentIndex: number): void {
+    const pastedData = event.clipboardData?.getData('text');
+    if (pastedData) {
+      // Split the pasted OTP string into individual characters
+      const otpArray = pastedData.split('');
+      otpArray.forEach((digit, index) => {
+        if (index < this.otp.length) {
+          this.otp[index] = digit;  // Populate the OTP array
         }
-      }
-    }, 100);
+      });
+
+      // Move focus to the next available input
+      setTimeout(() => {
+        const nextIndex = currentIndex + otpArray.length;
+        const nextInput = document.getElementById(`otp-input-${nextIndex}`);
+        if (nextInput) {
+          (nextInput as HTMLElement).focus();
+        }
+      }, 100);
+    }
   }
 
   // Submit the OTP
