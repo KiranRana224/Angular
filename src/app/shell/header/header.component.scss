@@ -1,0 +1,25 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  .mat-toolbar
+  {
+    background: #3F51B5;
+  }
+  .navlink{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 12px;
+    margin: 0 !important;
+    color: #fff;
+    padding: 0 !important;
+    cursor: pointer;
+    a{
+      text-decoration: none;
+      color: #fff;
+    }
+    
+  }
+  .mat-mdc-icon-button.mat-mdc-button-base{
+    color: #fff;
+  }

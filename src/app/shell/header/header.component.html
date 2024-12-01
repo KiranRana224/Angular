@@ -1,0 +1,26 @@
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+    (click)="handleSidebarToggle()">
+      <mat-icon >menu</mat-icon>
+    </button>
+    <!-- <span>My App</span> -->
+    <nav>
+      <ul class="navlink">
+        <li class="navList">
+          <a [routerLink]="['/sales']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Sales</a>
+        </li>
+        <li class="navList">
+          <a [routerLink]="['/purchase']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Purchase</a>
+
+        </li>
+      </ul>
+    </nav>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" matTooltip="Logout">
+      <mat-icon>subdirectory_arrow_left</mat-icon>
+    </button>
+  </mat-toolbar>
+  
