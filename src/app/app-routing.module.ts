@@ -7,6 +7,8 @@ import { RegisterComponent } from './user/register/register.component';
 import { SalesComponent } from './sales/sales.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { HomeComponent } from './home/home.component';
+import { UsersListsComponent } from './user/users-lists/users-lists.component';
+import { UsersComponent } from './user/users/users.component';
 
 // const routes: Routes = [
 //   {path:'',component:LoginComponent},
@@ -22,24 +24,24 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    children: [
-      { path: '', component: LoginComponent }
-    ]
+    children: [{ path: '', component: LoginComponent }],
   },
+  { path: 'register', component: RegisterComponent },
+
   {
     path: '',
     component: ShellComponent, // Shell layout for authenticated users
     children: [
       { path: 'sales', component: SalesComponent },
       { path: 'purchase', component: PurchaseComponent },
-      {path:'home',component:HomeComponent}
-    ]
-  }
+      { path: 'home', component: HomeComponent },
+      { path: 'users', component: UsersComponent },
+    ],
+  },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

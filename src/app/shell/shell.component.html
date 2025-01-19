@@ -1,9 +1,14 @@
-<app-sidebar [isExpanded]="sidebarExpanded" (toggleSidebar)="sidebarExpanded = !sidebarExpanded"></app-sidebar>
-<div class="content" [ngClass]="{ 'sidebarExpanded': sidebarExpanded }">
-  <app-header [isExpanded]="sidebarExpanded" (toggleSidebar)="sidebarExpanded = !sidebarExpanded"></app-header>
+<app-sidebar
+  [isExpanded]="sidebarExpanded"
+  (toggleSidebar)="sidebarExpanded = !sidebarExpanded"
+></app-sidebar>
+<div class="content" [ngClass]="{ sidebarExpanded: sidebarExpanded }">
+  <app-header
+    [isExpanded]="sidebarExpanded"
+    (toggleSidebar)="sidebarExpanded = !sidebarExpanded"
+  ></app-header>
 
-  <div class="body">
+  <div class="main-body">
     <router-outlet></router-outlet>
-
   </div>
 </div>

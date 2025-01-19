@@ -1,0 +1,131 @@
+<form [formGroup]="searchForm" (ngSubmit)="submitSearch()">
+  <div class="row m-0 p-0 w-100">
+    <div class="col-3">
+      <mat-form-field>
+        <!-- <mat-label>Choose a date</mat-label> -->
+        <input
+          matInput
+          [matDatepicker]="picker"
+          placeholder="from date"
+          formControlName="fromDate"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-3">
+      <mat-form-field>
+        <!-- <mat-label>Choose a date</mat-label> -->
+        <input
+          matInput
+          [matDatepicker]="picker2"
+          placeholder="to date"
+          formControlName="toDate"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-2">
+      <mat-form-field>
+        <input matInput placeholder="keywords" formControlName="keywords" />
+      </mat-form-field>
+    </div>
+    <div class="col-2">
+      <button
+        mat-flat-button
+        color="primary"
+        type="submit"
+        class="btn btn_search"
+      >
+        Search
+      </button>
+    </div>
+    <div class="col-2">
+      <button
+        mat-flat-button
+        color="warn"
+        class="btn btn_reset"
+        type="reset"
+        (click)="resetSearch()"
+      >
+        Reset
+      </button>
+    </div>
+  </div>
+</form>
+
+<div class="container-fluid">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8 matTable"
+    *ngIf="totalCount > 0"
+  >
+    <!-- Position Column -->
+    <ng-container matColumnDef="userId">
+      <th mat-header-cell *matHeaderCellDef>User Id.</th>
+      <td mat-cell *matCellDef="let element">{{ element.user_id }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.first_name }} {{ element?.last_name }}
+      </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef>Phone</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.phone_number ? element.phone_number : "-" }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="shipping_address">
+      <th mat-header-cell *matHeaderCellDef>Shipping Address</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.shipping_address ? element.shipping_address : "-" }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef>Role</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element?.role ? element?.role : "-" }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-stroked-button>Edit</button>
+      </td>
+    </ng-container>
+
+    <!-- Header and Row -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    [length]="totalCount"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    aria-label="Select page"
+    (page)="onPageChanged($event)"
+    showFirstLastButtons
+  >
+  </mat-paginator>
+
+  <div class="text-center" *ngIf="totalCount == 0">
+    <h1>No Data Found</h1>
+  </div>
+</div>

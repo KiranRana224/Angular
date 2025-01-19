@@ -1,0 +1,7 @@
+<div>
+    <video #videoElement width="640" height="480" autoplay></video>
+    <button (click)="captureImage()">Capture</button>
+    <canvas #canvasElement width="640" height="480"></canvas>
+    <img *ngIf="capturedImage" [src]="capturedImage" alt="Captured Image">
+  </div>
+  

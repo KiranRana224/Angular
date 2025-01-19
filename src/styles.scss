@@ -6,3 +6,50 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 
+@import './theme/custom-theme.scss';
+
+.mat-toolbar
+{
+  background: mat-color($my-primary);
+}
+.sidebar{
+    background: #fff;
+    color: mat-color($my-primary);
+}
+.main-body{
+  height: 80vh !important;
+  width: 100%;
+overflow-x: hidden;
+margin: 20px 0;
+box-shadow: 12px 12px 28px 0px rgba(0,0,0,0.1);  
+}
+.matTable{
+  margin-top: 10px;
+th{
+  background-color: mat-color($my-primary,200) !important;
+  color: #000 !important;
+}
+th:not(:last-child) {
+  border-right: 1px solid;
+}
+
+td{
+  color: #000;
+}
+tr {
+  background-color:#fff !important; 
+
+}
+tr:nth-child(even) {
+
+  background-color: #e7e8e9 !important; 
+}
+
+}
+
+
+.tabGroup{
+  mat-tab{
+    background-color: #000 !important;
+  }
+}

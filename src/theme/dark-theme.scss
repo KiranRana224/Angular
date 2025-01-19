@@ -1,0 +1,32 @@
+@import '@angular/material/theming';
+
+// Include the core styles for Angular Material
+@include mat-core();
+
+// Define custom color palettes for a blue theme
+$my-primary: mat-palette($mat-blue);  // Primary color (blue shades)
+$my-accent: mat-palette($mat-light-blue, 500);  // Accent color (light blue)
+$my-warn: mat-palette($mat-red);  // Warning color (default red)
+
+// Create the dark theme with blue colors
+$my-theme: mat-dark-theme($my-primary, $my-accent, $my-warn);
+
+// Include the theme
+@include angular-material-theme($my-theme);
+
+
+// @import '@angular/material/theming';
+
+// // Include the core styles for Angular Material
+// @include mat-core();
+
+// // Define custom color palettes for a black theme
+// $my-primary: mat-palette($mat-blue-grey);  // Primary color (blue-grey, a dark blue tone)
+// $my-accent: mat-palette($mat-teal, 500);  // Accent color (teal for contrast)
+// $my-warn: mat-palette($mat-orange);  // Warning color (orange)
+
+// // Create the dark theme with black and grey tones
+// $my-theme: mat-dark-theme($my-primary, $my-accent, $my-warn);
+
+// // Include the theme
+// @include angular-material-theme($my-theme);

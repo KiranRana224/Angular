@@ -52,8 +52,7 @@
       }
     }
   
-    background: #fff;
-    color: #3F51B5;
+ 
     box-shadow: 12px 12px 28px 0px rgba(0,0,0,0.1);  
     .header {
       display: flex;
@@ -121,19 +120,19 @@
   
           &:hover {
             background: #3949AB; 
-            color: #fff;
+            // color: #fff;
             .title {
               color: white;
             }
-            .mat-icon {
-              fill: white;
-            }
+            // .mat-icon {
+            //   fill: white;
+            // }
           }
   
           &.active {
             background: #FFF;
             .title {
-              color: white;
+              color:#000;
             }
           }
   
@@ -144,9 +143,9 @@
             justify-content: center;
             margin-right: 0px;
           }
-          .icon:hover{
-            color: #FFF;
-          }
+          // .icon:hover{
+          //   color: #FFF;
+          // }
           .title {
             flex: 1;
             // display: none;
@@ -159,6 +158,6 @@
       }
     }
   }
-  .mat-icon:hover{
-    color: #fff;    
-  }
+  // .mat-icon:hover{
+  //   color: #fff;    
+  // }

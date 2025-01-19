@@ -1,28 +1,32 @@
-<div class="sidebar" [ngClass]="{ 'expanded': isExpanded }">
-    <div class="header">
-      <h1 class="title">
-        LOGO
-      </h1>
-    </div>
-    <div class="content">
-      <div class="link with-children">
-        <div class="content" [routerLink]="['/configuration']" [routerLinkActive]="'active'">
-          <div class="icon">
-            <mat-icon>location_city</mat-icon>
-
-          </div>
-          <div class="title">Configuration</div>
-        </div>
-      </div>
-      <div class="link">
-        <div class="content" [routerLink]="['/bookings']" [routerLinkActive]="'active'">
-          <div class="icon">
-            <mat-icon>domain</mat-icon>
-
-          </div>
-          <div class="title">Bookings</div>
-        </div>
-      </div>
-    </div>
-    <div class="footer"></div>
+<div class="sidebar" [ngClass]="{ expanded: isExpanded }">
+  <div class="header">
+    <h1 class="title">LOGO</h1>
   </div>
+  <div class="content">
+    <div class="link with-children">
+      <div
+        class="content"
+        [routerLink]="['/home']"
+        [routerLinkActive]="'active'"
+      >
+        <div class="icon">
+          <mat-icon matTooltip="configuration">location_city</mat-icon>
+        </div>
+        <div class="title">Configuration</div>
+      </div>
+    </div>
+    <div class="link">
+      <div
+        class="content"
+        [routerLink]="['/users']"
+        [routerLinkActive]="'active'"
+      >
+        <div class="icon">
+          <mat-icon matTooltip="Users">supervised_user_circle</mat-icon>
+        </div>
+        <div class="title">Users</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"></div>
+</div>

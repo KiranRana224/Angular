@@ -1,0 +1,46 @@
+// @import '~@angular/material/theming';
+// // Include the common styles for Angular Material
+// @include mat-core();
+// // Define your primary and accent palettes
+// $primary-palette: mat-palette($mat-indigo);
+// $accent-palette: mat-palette($mat-pink, A200, A100, A400);
+
+// $custom-typography: mat-typography-config(
+//   $font-family: 'Roboto, Arial, sans-serif',
+//   $headline-1: mat-typography-level(96px, 96px, 300),
+//   $headline-2: mat-typography-level(60px, 60px, 300),
+// );
+// // Create the theme object with primary and accent colors
+// $custom-theme: mat-light-theme(
+//   (
+//     color: (
+//       primary: $primary-palette,
+//       accent: $accent-palette,
+//       warn: $warn-palette,
+
+//     ),
+//     typography: $custom-typography,
+
+//   )
+// );
+// // Apply the theme to Angular Material components
+// @include angular-material-theme($custom-theme);
+// @include angular-material-typography($custom-typography);
+
+
+
+@import '@angular/material/theming';
+
+@include mat-core();
+
+// Define a custom theme using Material's theming API
+$my-primary: mat-palette($mat-indigo);
+$my-accent: mat-palette($mat-pink, 500);
+$my-warn: mat-palette($mat-red);
+
+$my-theme: mat-light-theme($my-primary, $my-accent, $my-warn);
+
+// Include the theme
+@include angular-material-theme($my-theme);
+
+

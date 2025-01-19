@@ -1,0 +1,106 @@
+<mat-tab-group
+  mat-stretch-tabs="false"
+  mat-align-tabs="start"
+  class="tabGroup"
+  #tabGroup
+  (selectedTabChange)="onTabChange($event)"
+>
+  <mat-tab label="View All">
+    <app-users-lists #userLists></app-users-lists>
+  </mat-tab>
+  <mat-tab label="Add User">
+    <mat-card class="pt-3">
+      <h3>Add User</h3>
+      <form [formGroup]="addUser" (ngSubmit)="submitUser()">
+        <div class="row mx-0">
+          <div class="col-4">
+            <mat-form-field appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input
+                matInput
+                placeholder="First Name"
+                formControlName="firstName"
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input
+                matInput
+                placeholder="Last Name"
+                formControlName="lastName"
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Role</mat-label>
+              <mat-select formControlName="role">
+                <div *ngFor="let role of roleList">
+                  <mat-option [value]="role">{{ role?.role }} </mat-option>
+                </div>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row mx-0">
+          <div class="col-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Email" formControlName="email" />
+            </mat-form-field>
+          </div>
+          <div class="col-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                placeholder="Password"
+                formControlName="password"
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Phone Number</mat-label>
+              <input
+                matInput
+                placeholder="Phone Number"
+                type="number"
+                formControlName="phone"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row mx-0">
+          <div class="col-12">
+            <mat-form-field appearance="outline">
+              <textarea
+                name=""
+                id=""
+                matInput
+                placeholder="Shipping Address"
+                formControlName="shipping_address"
+              ></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button mat-stroked-button type="submit" color="primary" class="m-1">
+            Submit
+          </button>
+          <button
+            mat-stroked-button
+            type="submit"
+            color="warn"
+            class="m-1"
+            (click)="cancel()"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>
