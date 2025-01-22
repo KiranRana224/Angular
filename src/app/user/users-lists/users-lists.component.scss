@@ -15,3 +15,8 @@ mat-form-field{
     height: 71px !important;
     border: 0 !important;
 }
+
+::ng-deep .mat-dialog-container {
+    width: 800px !important;  // Force the width to be 800px, overriding other styles
+  }
+  

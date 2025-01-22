@@ -89,6 +89,8 @@ const getUserLists = async (req, res) => {
     console.log(req.query, skip);
 
     const usersCount = (await User.findAll()).length;
+    console.log("22222", req.body.password);
+
     const users = await User.findAll({
       attributes: [
         "user_id",
@@ -98,6 +100,7 @@ const getUserLists = async (req, res) => {
         "phone_number",
         "shipping_address",
         "role",
+        "password",
       ], // You can customize the fields to return
       where: {
         // Optional: add any filtering conditions here
