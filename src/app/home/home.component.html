@@ -1,33 +1,58 @@
 <div>
-    <div class="row">
-        <div class="col-sm-6">
-            <mat-card>
-                <div style="display: block;">
-                    <canvas baseChart
-                      [data]="lineChartData"
-                      [options]="lineChartOptions"
-                      [type]="lineChartType"
-                      [legend]="lineChartLegend"
-                      [plugins]="lineChartPlugins">
-                    </canvas>
-                  </div>
-                  
-            </mat-card>
-        </div>
-        <div class="col-sm-6">
-            <mat-card>
-                <div style="display: block;">
-                    <canvas baseChart
-                      [data]="lineChartData"
-                      [options]="lineChartOptions"
-                      [type]="lineChartType"
-                      [legend]="lineChartLegend"
-                      [plugins]="lineChartPlugins">
-                    </canvas>
-                  </div>
-                  
-            </mat-card>
-        </div>
+  <div class="row pt-3">
+    <div class="col-sm-6">
+      <mat-card>
+        <h4>Bar Chart</h4>
+        <app-barchart></app-barchart>
+      </mat-card>
     </div>
-   
+    <div class="col-sm-6">
+      <mat-card>
+        <h4>Line Chart</h4>
+        <app-linechart></app-linechart>
+      </mat-card>
+    </div>
+  </div>
+  <!-- <div class="row pt-3">
+    <div class="col-sm-6">
+      <mat-card>
+        <h4>Bubble Chart</h4>
+        <app-bubblechart></app-bubblechart>
+      </mat-card>
+    </div>
+    <div class="col-sm-6">
+      <mat-card>
+        <h4>Doubnut Chart</h4>
+        <app-doubnutchart></app-doubnutchart>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-sm-6">
+      <mat-card>
+        <h4>pie Chart</h4>
+        <app-piechart></app-piechart>
+      </mat-card>
+    </div>
+    <div class="col-sm-6">
+      <mat-card>
+        <h4>polar Chart</h4>
+        <app-polarchart></app-polarchart>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-sm-6">
+      <mat-card>
+        <h4>radar Chart</h4>
+        <app-radarchart></app-radarchart>
+      </mat-card>
+    </div>
+    <div class="col-sm-6">
+      <mat-card>
+        <h4>scatter Chart</h4>
+        <app-scatterchart></app-scatterchart>
+      </mat-card>
+    </div> 
+  </div> -->
 </div>

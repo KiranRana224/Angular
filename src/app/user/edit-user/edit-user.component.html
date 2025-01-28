@@ -1,83 +1,100 @@
-<h1>Edit User</h1>
-<form [formGroup]="editUser" (ngSubmit)="editUserForm()">
-  <div class="row mx-0">
-    <div class="col-4">
-      <mat-form-field appearance="outline">
-        <mat-label>First Name</mat-label>
-        <input matInput placeholder="First Name" formControlName="firstName" />
-      </mat-form-field>
-    </div>
-    <div class="col-4">
-      <mat-form-field appearance="outline">
-        <mat-label>Last Name</mat-label>
-        <input matInput placeholder="Last Name" formControlName="lastName" />
-      </mat-form-field>
-    </div>
-    <div class="col-4">
-      <mat-form-field appearance="outline">
-        <mat-label>Role</mat-label>
-        <mat-select formControlName="role">
-          <div *ngFor="let role of roleList">
-            <mat-option [value]="role">{{ role?.role }} </mat-option>
-          </div>
-        </mat-select>
-      </mat-form-field>
-    </div>
+<div class="container-fluid">
+  <div class="confirm_title">
+    <h2 mat-dialog-title>Angular material dialog prompt</h2>
+    <mat-icon class="cancel_icon" (click)="cancelEdit()">cancel</mat-icon>
   </div>
-  <div class="row mx-0">
-    <div class="col-4">
-      <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="Email" formControlName="email" />
-      </mat-form-field>
-    </div>
-    <div class="col-4">
-      <mat-form-field appearance="outline">
-        <mat-label>Password</mat-label>
-        <input matInput placeholder="Password" formControlName="password" />
-      </mat-form-field>
-    </div>
-    <div class="col-4">
-      <mat-form-field appearance="outline">
-        <mat-label>Phone Number</mat-label>
-        <input
-          matInput
-          placeholder="Phone Number"
-          type="number"
-          formControlName="phone"
-        />
-      </mat-form-field>
-    </div>
-  </div>
-  <div class="row mx-0">
-    <div class="col-12">
-      <mat-form-field appearance="outline">
-        <textarea
-          name=""
-          id=""
-          matInput
-          placeholder="Shipping Address"
-          formControlName="shipping_address"
-        ></textarea>
-      </mat-form-field>
-    </div>
-  </div>
-  <div class="btn-group">
-    <button mat-stroked-button type="submit" color="primary" class="m-1">
-      Submit
-    </button>
-    <button
-      mat-stroked-button
-      type="submit"
-      color="warn"
-      class="m-1"
-      (click)="cancelEdit()"
-    >
-      Cancel
-    </button>
-  </div>
-</form>
-<!-- <div mat-dialog-actions>
+
+  <mat-dialog-content class="p-3">
+    <form [formGroup]="editUser" (ngSubmit)="editUserForm()">
+      <div class="row mx-0">
+        <div class="col-4">
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input
+              matInput
+              placeholder="First Name"
+              formControlName="firstName"
+              [disabled]="true"
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input
+              matInput
+              placeholder="Last Name"
+              formControlName="lastName"
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Role</mat-label>
+            <mat-select formControlName="role">
+              <div *ngFor="let role of roleList">
+                <mat-option [value]="role.id">{{ role?.role }} </mat-option>
+              </div>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mx-0">
+        <div class="col-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="email" />
+          </mat-form-field>
+        </div>
+        <div class="col-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" formControlName="password" />
+          </mat-form-field>
+        </div>
+        <div class="col-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input
+              matInput
+              placeholder="Phone Number"
+              type="number"
+              formControlName="phone"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mx-0">
+        <div class="col-12">
+          <mat-form-field appearance="outline">
+            <textarea
+              name=""
+              id=""
+              matInput
+              placeholder="Shipping Address"
+              formControlName="shipping_address"
+            ></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button mat-stroked-button type="submit" color="primary" class="m-1">
+          Submit
+        </button>
+        <button
+          mat-stroked-button
+          type="submit"
+          color="warn"
+          class="m-1"
+          (click)="cancelEdit()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+    <!-- <div mat-dialog-actions>
   <button mat-button (click)="cancelEdit()">Cancel</button>
   <button mat-button (click)="confirmEdit()">Confirm</button>
 </div> -->
+  </mat-dialog-content>
+</div>

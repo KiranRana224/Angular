@@ -6,6 +6,7 @@ const {
   getUserLists,
   searchUser,
   addUser,
+  updateUser,
 } = require("../controller/login.controller");
 const verifyToken = require("../middleware/verifyToken"); // Assuming you have this middleware for token verification
 const router = express.Router();
@@ -24,5 +25,6 @@ router.get("/profile", verifyToken, async (req, res) => {
 router.get("/user-lists", getUserLists);
 router.post("/searchUser", searchUser);
 router.post("/addUser", addUser);
+router.put("/updateUser", updateUser);
 
 module.exports = router;

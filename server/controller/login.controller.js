@@ -89,8 +89,6 @@ const getUserLists = async (req, res) => {
     console.log(req.query, skip);
 
     const usersCount = (await User.findAll()).length;
-    console.log("22222", req.body.password);
-
     const users = await User.findAll({
       attributes: [
         "user_id",
@@ -301,6 +299,10 @@ async function addUser(req, res) {
     return res.status(500).json({ message: "Server error" });
   }
 }
+async function updateUser(req, res) {
+  try {
+  } catch (error) {}
+}
 module.exports = {
   registerUser,
   loginUser,
@@ -308,4 +310,5 @@ module.exports = {
   getUserLists,
   searchUser,
   addUser,
+  updateUser,
 };

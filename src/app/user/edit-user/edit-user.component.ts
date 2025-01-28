@@ -29,10 +29,14 @@ export class EditUserComponent {
   }
 
   patchData() {
+    const roleId = this.roleList.find(
+      (role) => role.role.toLowerCase() === this.userDetails.role.toLowerCase()
+    )?.id;
+
     this.editUser.patchValue({
       firstName: this.userDetails.first_name,
       lastName: this.userDetails.last_name,
-      role: this.userDetails.role,
+      role: roleId,
       email: this.userDetails.email,
       password: this.userDetails.password,
       phone: this.userDetails.phone_number,
