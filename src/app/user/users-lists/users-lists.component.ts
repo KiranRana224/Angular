@@ -3,6 +3,8 @@ import { LoginService } from '../login.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { EditUserComponent } from '../edit-user/edit-user.component';
 
 @Component({
   selector: 'app-users-lists',
@@ -28,10 +30,25 @@ export class UsersListsComponent implements OnInit, AfterViewInit {
   limit: number;
   skip: number = 0;
 
-  constructor(private userservice: LoginService, private fb: FormBuilder) {
+  constructor(
+    private userservice: LoginService,
+    private fb: FormBuilder,
+    private dialog: MatDialog
+  ) {
     this.limit = 10;
   }
-
+  openDialog(element: any) {
+    const dialogRef = this.dialog.open(EditUserComponent, {
+      data: {
+        width: '800px',
+        element: element,
+      },
+    });
+    dialogRef.afterClosed().subscribe((confirm: boolean) => {
+      if (confirm) {
+      }
+    });
+  }
   ngAfterViewInit(): void {
     this.getAllUsers();
   }

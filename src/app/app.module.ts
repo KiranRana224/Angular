@@ -26,6 +26,16 @@ import { UsersListsComponent } from './user/users-lists/users-lists.component';
 import { MatTableModule } from '@angular/material/table';
 import { UsersComponent } from './user/users/users.component';
 import { UserModule } from './user/user.module';
+import { LinechartComponent } from './home/linechart/linechart.component';
+import { BarchartComponent } from './home/barchart/barchart.component';
+import { PiechartComponent } from './home/piechart/piechart.component';
+import { DoubnutchartComponent } from './home/doubnutchart/doubnutchart.component';
+import { RadarchartComponent } from './home/radarchart/radarchart.component';
+import { PolarchartComponent } from './home/polarchart/polarchart.component';
+import { BubblechartComponent } from './home/bubblechart/bubblechart.component';
+import { ScatterchartComponent } from './home/scatterchart/scatterchart.component';
+import { SalesModule } from './sales/sales.module';
+import { MasterModule } from './master/master.module';
 
 @NgModule({
   declarations: [
@@ -42,6 +52,14 @@ import { UserModule } from './user/user.module';
     CaptureComponent,
     NotificationComponent,
     UsersComponent,
+    LinechartComponent,
+    BarchartComponent,
+    PiechartComponent,
+    DoubnutchartComponent,
+    RadarchartComponent,
+    PolarchartComponent,
+    BubblechartComponent,
+    ScatterchartComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +83,8 @@ import { UserModule } from './user/user.module';
     }),
     MatTableModule,
     UserModule,
+    SalesModule,
+    MasterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

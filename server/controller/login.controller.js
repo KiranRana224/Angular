@@ -98,6 +98,7 @@ const getUserLists = async (req, res) => {
         "phone_number",
         "shipping_address",
         "role",
+        "password",
       ], // You can customize the fields to return
       where: {
         // Optional: add any filtering conditions here
@@ -298,6 +299,10 @@ async function addUser(req, res) {
     return res.status(500).json({ message: "Server error" });
   }
 }
+async function updateUser(req, res) {
+  try {
+  } catch (error) {}
+}
 module.exports = {
   registerUser,
   loginUser,
@@ -305,4 +310,5 @@ module.exports = {
   getUserLists,
   searchUser,
   addUser,
+  updateUser,
 };

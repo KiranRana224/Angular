@@ -53,3 +53,9 @@ tr:nth-child(even) {
     background-color: #000 !important;
   }
 }
+.disabled {
+  background-color: gray !important;
+}
+.mat-mdc-form-field{
+  width: 100%;
+}

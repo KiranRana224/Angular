@@ -17,6 +17,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [],
@@ -36,6 +38,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatButtonToggleModule,
     MatSelectModule,
     MatPaginatorModule,
+    MatDialogModule,
+    MatAutocompleteModule,
   ],
   exports: [
     MatButtonModule,
@@ -53,6 +57,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSnackBarModule,
     MatSelectModule,
     MatPaginatorModule,
+    MatDialogModule,
+    MatAutocompleteModule,
   ],
 })
 export class MaterialModule {}

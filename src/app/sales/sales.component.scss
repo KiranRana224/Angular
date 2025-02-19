@@ -1,4 +1,16 @@
 
-    .mat-mdc-tab-ripple{
+    .mat-mdc-tab {
+        background-color: rgb(96, 124, 175) !important;
+    }
+    .mat-mdc-tab.mdc-tab 
+        {
+        margin-right: 10px;
+
+    }
+    .mdc-tab-indicator--active{
         background-color: cornflowerblue !important;
+        color: white;
+    }
+    .mdc-tab__text-label{
+        color: white !important;
     }
