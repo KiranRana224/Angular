@@ -1,5 +1,23 @@
 <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="tabGroup">
-  <mat-tab label="View All">Content 1</mat-tab>
+  <mat-tab label="View All">
+    <div>
+      <input
+        type="checkbox"
+        [(ngModel)]="selectAll"
+        (change)="toggleSelectAll()"
+      />
+      Select All
+    </div>
+
+    <div *ngFor="let item of items; let i = index">
+      <input
+        type="checkbox"
+        [(ngModel)]="item.selected"
+        (change)="updateSelectAll()"
+      />
+      {{ item.name }}
+    </div>
+  </mat-tab>
   <mat-tab label="Pending">Content 2</mat-tab>
   <mat-tab label="Add Invoice"> <app-add-invoice></app-add-invoice> </mat-tab>
 </mat-tab-group>
