@@ -1,33 +1,184 @@
-<div>
-    <div class="row">
-        <div class="col-sm-6">
-            <mat-card>
-                <div style="display: block;">
-                    <canvas baseChart
-                      [data]="lineChartData"
-                      [options]="lineChartOptions"
-                      [type]="lineChartType"
-                      [legend]="lineChartLegend"
-                      [plugins]="lineChartPlugins">
-                    </canvas>
-                  </div>
-                  
-            </mat-card>
+<div class="contianer">
+  <div class="row">
+    <div class="col-sm-6">
+      <mat-card>
+        <h1 class="mx-4 mt-4">Bar chart</h1>
+        <div style="display: block" class="chart-container">
+          <canvas
+            baseChart
+            [data]="lineChartData"
+            [options]="lineChartOptions"
+            [type]="lineChartType"
+            [legend]="lineChartLegend"
+            [plugins]="lineChartPlugins"
+          >
+          </canvas>
         </div>
-        <div class="col-sm-6">
-            <mat-card>
-                <div style="display: block;">
-                    <canvas baseChart
-                      [data]="lineChartData"
-                      [options]="lineChartOptions"
-                      [type]="lineChartType"
-                      [legend]="lineChartLegend"
-                      [plugins]="lineChartPlugins">
-                    </canvas>
-                  </div>
-                  
-            </mat-card>
-        </div>
+      </mat-card>
     </div>
-   
+    <div class="col-sm-6">
+      <mat-card>
+        <h1 class="mx-4 mt-4">Line</h1>
+        <div style="display: block" class="chart-container">
+          <canvas
+            baseChart
+            [data]="lineChartData"
+            [options]="lineChartOptions"
+            [type]="barChartType"
+            [legend]="lineChartLegend"
+            [plugins]="lineChartPlugins"
+          >
+          </canvas>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <mat-card>
+        <h1 class="mx-4 mt-4">Double bar chart</h1>
+
+        <div style="display: block" class="chart-container">
+          <canvas
+            baseChart
+            [data]="barChartData"
+            [options]="lineChartOptions"
+            [type]="lineChartType"
+            [legend]="lineChartLegend"
+            [plugins]="lineChartPlugins"
+          >
+          </canvas>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-sm-6">
+      <mat-card>
+        <h1 class="mx-4 mt-4">Stacked bar chart</h1>
+
+        <div class="chart-container" style="display: block">
+          <canvas
+            baseChart
+            [data]="stackedBarChartData"
+            [options]="stackedBarChartOptions"
+            [type]="barChartTypes"
+            [legend]="lineChartLegend"
+            [plugins]="lineChartPlugins"
+          >
+          </canvas>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <mat-card>
+        <h1 class="mx-4 mt-4">Pie chart</h1>
+
+        <div style="display: block" class="chart-container">
+          <canvas
+            baseChart
+            [data]="lineChartData"
+            [options]="lineChartOptions"
+            [type]="pieChartType"
+            [legend]="lineChartLegend"
+            [plugins]="lineChartPlugins"
+          >
+          </canvas>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-sm-6">
+      <mat-card>
+        <h1 class="mx-4 mt-4">Doubnut chart</h1>
+
+        <div style="display: block" class="chart-container">
+          <canvas
+            baseChart
+            [data]="lineChartData"
+            [options]="lineChartOptions"
+            [type]="doubnutChartType"
+            [legend]="lineChartLegend"
+            [plugins]="lineChartPlugins"
+          >
+          </canvas>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <mat-card>
+        <h1 class="mx-4 mt-4">Mixed chart</h1>
+        <div class="chart-container" style="display: block">
+          <canvas
+            baseChart
+            [data]="mixedChartData"
+            [options]="mixedChartOptions"
+            [type]="mixedChartType"
+            [legend]="chartLegend"
+            [plugins]="chartPlugins"
+          ></canvas>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-sm-6">
+      <mat-card>
+        <h1 class="mx-4 mt-4">Line chart</h1>
+        <div class="chart-container">
+          <canvas
+            baseChart
+            [data]="multiLineChartData"
+            [options]="multiLineChartOptions"
+            [type]="multiLineChartType"
+            [legend]="chartLegend"
+            [plugins]="chartPlugins"
+          ></canvas>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<mat-card>
+  <div class="chart-containers">
+    <div class="mx-4 pt-4">
+      <select [(ngModel)]="currentChartType">
+        <option value="line">Line</option>
+        <option value="bar">Bar</option>
+        <option value="pie">Pie</option>
+        <option value="doughnut">Doughnut</option>
+      </select>
+    </div>
+    <canvas
+      baseChart
+      width="600"
+      height="600"
+      [data]="chartData"
+      [type]="currentChartType"
+      [options]="lineChartOptions"
+      [legend]="lineChartLegend"
+      [plugins]="lineChartPlugins"
+    >
+    </canvas>
+  </div>
+</mat-card>
+<!-- <mat-card>
+  <div class="chart-container" style="display: block">
+    <canvas
+      baseChart
+      width="600"
+      height="600"
+      [data]="pieChartsData"
+      [options]="chartOptions"
+      [type]="pieChartsType"
+      [legend]="chartsLegend"
+      [plugins]="chartsPluginss"
+    ></canvas>
+  </div>
+</mat-card> -->
+
+<div class="row">
+  <h1>kkjkj</h1>
+  <div class="col-sm-6">
+    <app-dynamic-chart></app-dynamic-chart>
+  </div>
 </div>

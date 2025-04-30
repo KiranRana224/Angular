@@ -26,6 +26,7 @@ import { UsersListsComponent } from './user/users-lists/users-lists.component';
 import { MatTableModule } from '@angular/material/table';
 import { UsersComponent } from './user/users/users.component';
 import { UserModule } from './user/user.module';
+import { DynamicChartComponent } from './home/dynamic-chart/dynamic-chart.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { UserModule } from './user/user.module';
     CaptureComponent,
     NotificationComponent,
     UsersComponent,
+    DynamicChartComponent,
   ],
   imports: [
     BrowserModule,
