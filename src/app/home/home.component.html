@@ -1,10 +1,21 @@
-<div class="contianer">
+<!-- <div class="contianer">
   <div class="row">
     <div class="col-sm-6">
       <mat-card>
-        <h1 class="mx-4 mt-4">Bar chart</h1>
+        <div class="header-div">
+          <h1 class="mx-4 mt-4">Bar chart</h1>
+          <div class="mx-4 mt-4">
+            <span (click)="changeView('chart')" class="togglr-btn"
+              ><mat-icon class="align-middle">bar_chart</mat-icon></span
+            >
+            <span (click)="changeView('dataset')" class="togglr-btn">
+              <mat-icon class="align-middle"> table_chart</mat-icon>
+            </span>
+          </div>
+        </div>
         <div style="display: block" class="chart-container">
           <canvas
+            *ngIf="isChart"
             baseChart
             [data]="lineChartData"
             [options]="lineChartOptions"
@@ -13,6 +24,22 @@
             [plugins]="lineChartPlugins"
           >
           </canvas>
+          <div class="table-container">
+            <table border="1">
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let label of lineChartData.labels; let i = index">
+                  <td>{{ label }}</td>
+                  <td>{{ lineChartData.datasets[0].data[i] }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </mat-card>
     </div>
@@ -161,6 +188,15 @@
     </canvas>
   </div>
 </mat-card>
+
+
+<div class="row">
+  <h1>kkjkj</h1>
+  <div class="col-sm-6">
+    <app-dynamic-chart></app-dynamic-chart>
+  </div>
+</div> -->
+
 <!-- <mat-card>
   <div class="chart-container" style="display: block">
     <canvas
@@ -176,9 +212,203 @@
   </div>
 </mat-card> -->
 
-<div class="row">
-  <h1>kkjkj</h1>
-  <div class="col-sm-6">
-    <app-dynamic-chart></app-dynamic-chart>
+<div class="container">
+  <div class="row">
+    <!-- Bar Chart with Toggle -->
+    <div class="col-sm-6">
+      <mat-card>
+        <div class="header-div">
+          <h1 class="mx-4 mt-4">Bar chart</h1>
+          <div class="mx-4 mt-4">
+            <span (click)="changeView('chart')" class="togglr-btn">
+              <mat-icon class="align-middle">bar_chart</mat-icon>
+            </span>
+            <span (click)="changeView('dataset')" class="togglr-btn">
+              <mat-icon class="align-middle">table_chart</mat-icon>
+            </span>
+          </div>
+        </div>
+        <div class="chart-container" style="display: block">
+          <canvas
+            *ngIf="isChart"
+            baseChart
+            [data]="barChartData"
+            [options]="barChartOptions"
+            [type]="barChartType"
+            [legend]="true"
+            [plugins]="[]"
+          ></canvas>
+          <div class="table-container" *ngIf="!isChart">
+            <table border="1">
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Value A</th>
+                  <th>Value B</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let label of barChartData.labels; let i = index">
+                  <td>{{ label }}</td>
+                  <td>{{ barChartData.datasets[0].data[i] }}</td>
+                  <td>{{ barChartData.datasets[1].data[i] }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+
+    <!-- Line Chart -->
+    <div class="col-sm-6">
+      <mat-card>
+        <h1 class="mx-4 mt-4">Line</h1>
+        <div class="chart-container" style="display: block">
+          <canvas
+            baseChart
+            [data]="lineChartData"
+            [options]="lineChartOptions"
+            [type]="'line'"
+            [legend]="true"
+            [plugins]="[]"
+          ></canvas>
+        </div>
+      </mat-card>
+    </div>
   </div>
+
+  <div class="row">
+    <!-- Double Bar Chart -->
+    <div class="col-sm-6">
+      <mat-card>
+        <h1 class="mx-4 mt-4">Double bar chart</h1>
+        <div class="chart-container" style="display: block">
+          <canvas
+            baseChart
+            [data]="barChartData"
+            [options]="barChartOptions"
+            [type]="'bar'"
+            [legend]="true"
+            [plugins]="[]"
+          ></canvas>
+        </div>
+      </mat-card>
+    </div>
+
+    <!-- Stacked Bar Chart -->
+    <div class="col-sm-6">
+      <mat-card>
+        <h1 class="mx-4 mt-4">Stacked bar chart</h1>
+        <div class="chart-container" style="display: block">
+          <canvas
+            baseChart
+            [data]="stackedBarChartData"
+            [options]="stackedBarChartOptions"
+            [type]="'bar'"
+            [legend]="true"
+            [plugins]="[]"
+          ></canvas>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Pie Chart -->
+    <div class="col-sm-6">
+      <mat-card>
+        <h1 class="mx-4 mt-4">Pie chart</h1>
+        <div class="fixed-chart-container">
+          <canvas
+            baseChart
+            [data]="pieChartData"
+            [options]="chartOptions"
+            [type]="'pie'"
+            [legend]="true"
+            [plugins]="[]"
+          ></canvas>
+        </div>
+      </mat-card>
+    </div>
+
+    <!-- Doughnut Chart -->
+    <div class="col-sm-6">
+      <mat-card>
+        <h1 class="mx-4 mt-4">Doughnut chart</h1>
+        <div class="fixed-chart-container">
+          <canvas
+            baseChart
+            [data]="doughnutChartData"
+            [options]="chartOptions"
+            [type]="'doughnut'"
+            [legend]="true"
+            [plugins]="[]"
+          ></canvas>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Mixed Chart -->
+    <div class="col-sm-6">
+      <mat-card>
+        <h1 class="mx-4 mt-4">Mixed chart</h1>
+        <div class="chart-container" style="display: block">
+          <canvas
+            baseChart
+            [data]="mixedChartData"
+            [options]="mixedChartOptions"
+            [type]="'bar'"
+            [legend]="true"
+            [plugins]="[]"
+          ></canvas>
+        </div>
+      </mat-card>
+    </div>
+
+    <!-- Multi Line Chart -->
+    <div class="col-sm-6">
+      <mat-card>
+        <h1 class="mx-4 mt-4">Multi Line chart</h1>
+        <div class="chart-container">
+          <canvas
+            baseChart
+            [data]="multiLineChartData"
+            [options]="multiLineChartOptions"
+            [type]="'line'"
+            [legend]="true"
+            [plugins]="[]"
+          ></canvas>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <!-- Dynamic Chart -->
+  <mat-card class="mb-4">
+    <div class="chart-container-fixed">
+      <div class="mx-4 pt-4">
+        <select [(ngModel)]="currentChartType">
+          <option value="line">Line</option>
+          <option value="bar">Bar</option>
+          <option value="pie">Pie</option>
+          <option value="doughnut">Doughnut</option>
+        </select>
+      </div>
+      <div class="canvas-holder">
+        <canvas
+          baseChart
+          [data]="chartData"
+          [type]="currentChartType"
+          [options]="lineChartOptions"
+          [legend]="true"
+          [plugins]="[]"
+        ></canvas>
+      </div>
+    </div>
+  </mat-card>
 </div>
+
+<app-dynamic-chart></app-dynamic-chart>

@@ -1,1 +1,60 @@
-<p>dynamic-chart works!</p>
+<!-- 1. Drill-Down Graph (Jan–Jun) -->
+<!-- <div class="chart-container">
+  <h2>Drill-Down Graph (Jan–Jun)</h2>
+  <div class="header">
+    <h2>{{ drillChartData.datasets[0].label }}</h2>
+    <button *ngIf="drillLevel === 'detail'" (click)="onDrillBack()">
+      ← Back
+    </button>
+  </div>
+
+  <canvas
+    baseChart
+    [data]="drillChartData"
+    [options]="chartOptions"
+    [type]="'bar'"
+    (chartClick)="onDrillChartClick($event)"
+  ></canvas>
+</div> -->
+<div class="chart-container">
+  <h2>Drill Down Graph (Jan–Jun → Week → Day)</h2>
+
+  <div class="header">
+    <h2>{{ drillChartData.datasets[0].label }}</h2>
+    <button *ngIf="drillLevel !== 'month'" (click)="onDrillBack()">
+      ← Back
+    </button>
+  </div>
+
+  <canvas
+    baseChart
+    [data]="drillChartData"
+    [options]="drillChartOptions"
+    [type]="'bar'"
+    (chartClick)="onDrillChartClick($event)"
+  ></canvas>
+</div>
+
+<!-- 2. Graph with Prev/Next -->
+<div class="chart-container">
+  <h2>Graph with Prev/Next</h2>
+  <div class="header">
+    <h2>{{ pagedChartData.datasets[0].label }}</h2>
+    <div class="nav-buttons">
+      <button (click)="onPrev()" [disabled]="currentPage === 0">← Prev</button>
+      <button
+        (click)="onNext()"
+        [disabled]="(currentPage + 1) * pageSize >= allMonths.length"
+      >
+        Next →
+      </button>
+    </div>
+  </div>
+
+  <canvas
+    baseChart
+    [data]="pagedChartData"
+    [options]="chartOptions"
+    [type]="'bar'"
+  ></canvas>
+</div>
