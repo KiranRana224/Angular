@@ -6,7 +6,6 @@ import {
   Chart,
   ChartConfiguration,
 } from 'chart.js';
-import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 // Chart.register(DataLabelsPlugin);
 
 @Component({

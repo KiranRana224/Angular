@@ -1,0 +1,25 @@
+<!-- <div style="width: 400px; margin: auto">
+  <canvas
+    baseChart
+    [data]="pieChartData"
+    [type]="'pie'"
+    [options]="pieChartOptions"
+  >
+  </canvas>
+
+  <div style="text-align: center; margin-top: 10px">
+    <button (click)="prev()" aria-label="Previous">&#8592; Prev</button>
+    <button (click)="next()" aria-label="Next">Next &#8594;</button>
+  </div>
+</div>
+
+ -->
+
+<!-- app.component.html -->
+<div class="chart-container">
+  <button (click)="previousData()">←</button>
+
+  <canvas baseChart [data]="pieChartData" [type]="'pie'"> </canvas>
+
+  <button (click)="nextData()">→</button>
+</div>
